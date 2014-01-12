@@ -1,7 +1,7 @@
 {
-  "name": "angularjs-seed",
-  "description": "A starter project for AngularJS",
-  "repository": "https://github.com/angular/angular-seed",
+  "name": "FuryFootballClub.com",
+  "description": "Minnesota Fury FC's Official Website",
+  "repository": "https://github.com/FuryFC/FuryFootballClub.com",
   "devDependencies": {
     "phantomjs" : "~1.9",
     "karma" : "~0.10",
