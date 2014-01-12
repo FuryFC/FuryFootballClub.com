@@ -37,15 +37,7 @@ module.exports = function(grunt) {
       opions: {
         files: "app/**/*.js",
         tasks: ["jshint"],
-        livereload: true/*{
-          options: {
-            middleware: function (connect) {
-              return [require("connect-livereload")({port: LIVERELOAD_PORT}),
-                mountFolder(connect, ".")
-              ];
-            }
-          }
-        }*/
+        livereload: true
       },
     },
     connect: {
@@ -88,7 +80,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-watch");
   //grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-contrib-connect");
-  //grunt.loadNpmTasks("grunt-contrib-livereload");
   grunt.loadNpmTasks("grunt-open");
 
 
