@@ -34,10 +34,10 @@ module.exports = function(grunt) {
       }
     },
     watch: {
-      files: "<%= jshint.src %>",
-      tasks: ["jshint"],
       opions: {
-        livereload: {
+        files: "app/**/*.js",
+        tasks: ["jshint"],
+        livereload: true/*{
           options: {
             middleware: function (connect) {
               return [require("connect-livereload")({port: LIVERELOAD_PORT}),
@@ -45,9 +45,9 @@ module.exports = function(grunt) {
               ];
             }
           }
-        }
-      }
+        }*/
       },
+    },
     connect: {
       server: {
         options: {
