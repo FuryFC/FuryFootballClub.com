@@ -3,7 +3,7 @@
 
   /* Controllers */
 
-  angular.module('myApp.controllers', []).
+  angular.module('furyApp.controllers', []).
     controller('MyCtrl1', [function() {
 
     }])

@@ -35,7 +35,7 @@ module.exports = function(grunt) {
     },
     watch: {
       opions: {
-        files: "app/**/*.js",
+        files: ["app/**/*.js", "app/css/*.css", "app/lib/**/*.js", "app/**/*.html"],
         tasks: ["jshint"],
         livereload: true
       },
