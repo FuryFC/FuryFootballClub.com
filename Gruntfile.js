@@ -83,6 +83,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-open");
 
 
+  grunt.registerTask("test", ["jshint"]);
   grunt.registerTask("server", ["connect:server", "open", "watch"]);
   // Default task.
   grunt.registerTask("default", "jshint");//, "concat");
