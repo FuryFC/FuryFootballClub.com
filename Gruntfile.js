@@ -1,11 +1,37 @@
-var LIVERELOAD_PORT = 8888;
-var mountFolder = function (connect, dir) {
-  return connect.static(require("path").resolve(dir));
-};
+'use strict';
 
 module.exports = function(grunt) {
+  // load all grunt tasks
+  //require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+
+  // configurable paths
+  var yeomanConfig = {
+      app: 'app',
+      dist: 'dist'
+  };
+
+  try {
+    yeomanConfig.app = require('./component.json').appPath || yeomanConfig.app;
+  } catch (e) { }
+
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
+    yeoman: yeomanConfig,
+    express: {
+      options: {
+        port: process.env.PORT || 9000
+      },
+      dev: {
+        options: {
+          script: 'server/web.js'
+        }
+      },
+      prod: {
+        options: {
+          script: 'server/web.js'
+        }
+      }
+    },
     jshint: {
       src: ["app/js/*.js"],
       options: {
@@ -26,10 +52,8 @@ module.exports = function(grunt) {
           requirejs: true,
           describe: true,
           expect: true,
-          it: true
-        },
-        globals:{
-            angular:true
+          it: true,
+          angular:true
         }
       }
     },
@@ -40,18 +64,9 @@ module.exports = function(grunt) {
         livereload: true
       },
     },
-    connect: {
-      server: {
-        options: {
-          port: 8888,
-          hostname: "localhost",
-          base: "app/"
-        }
-      }
-    },
     open: {
       server: {
-        path: "http://localhost:<%= connect.server.options.port %>"
+        path: "http://localhost:<%= express.options.port %>"
       }
     }/*,
     concat: {
@@ -78,13 +93,13 @@ module.exports = function(grunt) {
   // Load JSHint task
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks("grunt-contrib-watch");
-  //grunt.loadNpmTasks("grunt-contrib-concat");
-  grunt.loadNpmTasks("grunt-contrib-connect");
+  grunt.loadNpmTasks("express");
+  grunt.loadNpmTasks("grunt-express-server");
   grunt.loadNpmTasks("grunt-open");
 
 
   grunt.registerTask("test", ["jshint"]);
-  grunt.registerTask("server", ["connect:server", "open", "watch"]);
+  grunt.registerTask("server", ["express:dev", "open", "watch"]);
   // Default task.
   grunt.registerTask("default", "jshint");//, "concat");
 
