@@ -2,7 +2,7 @@
 
 ## Tests
 
-https://www.codeship.io/projects/23781320-739d-0131-d925-22027d5da812/statuss
+![CodeShip Tests](https://www.codeship.io/projects/23781320-739d-0131-d925-22027d5da812/status)
 
 
 ## Directory Layout
