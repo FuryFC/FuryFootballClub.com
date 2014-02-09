@@ -17,7 +17,7 @@
     "karma-ng-scenario": "~0.1"
   },
   "engines": {
-    "node": "0.10.x",
+    "node": "0.10.X",
     "npm": "1.3.21"
   },
   "dependencies": {
