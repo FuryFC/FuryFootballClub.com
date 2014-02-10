@@ -19,9 +19,10 @@ app.configure(function () {
   app.use(express.static(__dirname + '/fonts'));
   app.use(express.static(__dirname + '/img'));
 
-
-
   
+  app.use(express.static(__dirname + '/bower_components'));
+  app.use(express.static(__dirname + '/js'));
+  app.use(express.static(__dirname + '/lib'));
 });
 
 app.get('/', function (req, res) {
