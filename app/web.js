@@ -9,20 +9,21 @@ app.configure(function () {
   app.set('View Engine', 'jade');
   app.set('views', __dirname + '/views')
 
-  app.use(logfmt.requestLogger());
+  
 
   // Middleware
-  app.use(express.bodyParser());
-  //app.use(express.methodOverride());
-  app.use(app.router);
   app.use(express.static(__dirname + '/css'));
   app.use(express.static(__dirname + '/fonts'));
   app.use(express.static(__dirname + '/img'));
-
-  
   app.use(express.static(__dirname + '/bower_components'));
   app.use(express.static(__dirname + '/js'));
   app.use(express.static(__dirname + '/lib'));
+
+  app.use(logfmt.requestLogger());
+  app.use(express.bodyParser());
+  //app.use(express.methodOverride());
+  app.use(app.router);
+  
 });
 
 app.get('/', function (req, res) {
