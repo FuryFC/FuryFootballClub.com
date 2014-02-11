@@ -12,6 +12,7 @@ app.configure(function () {
   
 
   // Middleware
+  app.use(express.directory('css'));
   app.use('css', express.static(__dirname + '/css'));
   app.use('fonts', express.static(__dirname + '/fonts'));
   app.use('img', express.static(__dirname + '/img'));
