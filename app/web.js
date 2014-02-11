@@ -12,12 +12,12 @@ app.configure(function () {
   
 
   // Middleware
-  app.use(express.static(__dirname + '/css'));
-  app.use(express.static(__dirname + '/fonts'));
-  app.use(express.static(__dirname + '/img'));
-  app.use(express.static(__dirname + '/bower_components'));
-  app.use(express.static(__dirname + '/js'));
-  app.use(express.static(__dirname + '/lib'));
+  app.use('css', express.static(__dirname + '/css'));
+  app.use('fonts', express.static(__dirname + '/fonts'));
+  app.use('img', express.static(__dirname + '/img'));
+  app.use('js', express.static(__dirname + '/bower_components'));
+  app.use('js', express.static(__dirname + '/js'));
+  app.use('js/lib', express.static(__dirname + '/lib'));
 
   app.use(logfmt.requestLogger());
   app.use(express.bodyParser());
