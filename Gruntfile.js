@@ -23,12 +23,12 @@ module.exports = function(grunt) {
       },
       dev: {
         options: {
-          script: 'server/web.js'
+          script: 'app/web.js'
         }
       },
       prod: {
         options: {
-          script: 'server/web.js'
+          script: 'app/web.js'
         }
       }
     },
