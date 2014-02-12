@@ -1,30 +1,77 @@
 /* app css stylesheet */
 
-.menu {
-  list-style: none;
-  border-bottom: 0.1em solid black;
-  margin-bottom: 2em;
-  padding: 0 0 0.5em;
+.container { 
+  margin: 0; 
 }
 
-.menu:before {
-  content: "[";
+/* Theme */
+
+body { 
+  background-color: #131313; 
+  color: #EEE;
 }
 
-.menu:after {
-  content: "]";
+.front-section {
+  display: block;
+  background-color:  #131313;
 }
 
-.menu > li {
-  display: inline;
+.front-section.odd {
+  background-color: #333;
 }
 
-.menu > li:before {
-  content: "|";
-  padding-right: 0.3em;
+.gutter { 
+  padding: 15px; 
 }
 
-.menu > li:nth-child(1):before {
-  content: "";
-  padding: 0;
+.news article { 
+  position: relative; 
+}
+
+.news article .caption { 
+  background-color: #131313; 
+  bottom: 0; 
+  color: #ddd;
+  opacity:0.9;
+  filter:alpha(opacity=90);
+  position: absolute; 
+  width: 100%; 
+  z-index: 1;
+}
+
+.news article img {
+  max-width: 1400px;
+  width: 100%;
+}
+
+
+
+/* Schedule Section */
+h1 {
+  text-align: center;
+}
+
+
+/* Thumbnail News */
+
+.news.thumb article h1 {
+  font-size: 1.4em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.news.thumb article .caption {
+  background-color: #131313; 
+  bottom: 0; 
+  color: #ddd;
+  opacity:0.9;
+  filter:alpha(opacity=90);
+  position: absolute; 
+  text-align: center;
+  width: 100%; 
+  z-index: 1;
+}
+
+.news.thumb img {
+  width: 100%;
 }
