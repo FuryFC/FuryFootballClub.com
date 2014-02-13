@@ -1,5 +1,9 @@
 /* app css stylesheet */
 
+* {
+  font-family: 'Roboto Condensed', serif; 
+}
+
 .container { 
   margin: 0; 
 }
@@ -8,7 +12,7 @@
 
 body { 
   background-color: #131313; 
-  color: #EEE;
+  color: #eee;
 }
 
 .front-section {
@@ -26,6 +30,8 @@ body {
 
 .news article { 
   position: relative; 
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .news article .caption { 
@@ -49,6 +55,7 @@ body {
 /* Schedule Section */
 h1 {
   text-align: center;
+  text-transform:uppercase;
 }
 
 
