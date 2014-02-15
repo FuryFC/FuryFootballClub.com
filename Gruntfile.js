@@ -2,7 +2,7 @@
 
 module.exports = function(grunt) {
   // load all grunt tasks
-  //require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
   // configurable paths
   var yeomanConfig = {
@@ -23,7 +23,12 @@ module.exports = function(grunt) {
       },
       dev: {
         options: {
-          script: 'app/web.js'
+          script: 'app/web.dev.js'
+        }
+      },
+      test: {
+        options: {
+          script: 'app/web.test.js'
         }
       },
       prod: {
@@ -68,38 +73,14 @@ module.exports = function(grunt) {
       server: {
         path: "http://localhost:<%= express.options.port %>"
       }
-    }/*,
-    concat: {
-      options: {
-        separator: "\n"
-      },
-      dist: {
-        src: ["app/src/intro.js", 
-              "app/src/levels/*.js", 
-              "app/src/scenes/*.js", 
-              "app/src/controls/*.js", 
-              "app/src/uicontrols/*.js", 
-              "app/src/entities/*.js",
-              "app/src/engine/*.js",
-              "app/src/player.js",
-              "app/src/uivariables.js",
-              "app/src/game.js", 
-              "app/src/outro.js"],
-        dest: "build/src/<%= pkg.name %>.js"
-      }
-    }*/
+    }
   });
-
-  // Load JSHint task
-  grunt.loadNpmTasks("grunt-contrib-jshint");
-  grunt.loadNpmTasks("grunt-contrib-watch");
-  grunt.loadNpmTasks("express");
-  grunt.loadNpmTasks("grunt-express-server");
-  grunt.loadNpmTasks("grunt-open");
-
 
   grunt.registerTask("test", ["jshint"]);
   grunt.registerTask("server", ["express:dev", "open", "watch"]);
+  grunt.registerTask("server:test", ["express:test", "open", "watch"]);
+  grunt.registerTask("server:prod", ["express:prod", "open", "watch"]);
+
   // Default task.
   grunt.registerTask("default", "jshint");//, "concat");
 
