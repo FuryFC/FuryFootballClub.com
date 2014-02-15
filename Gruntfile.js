@@ -8,7 +8,6 @@ module.exports = function(grunt) {
   var yeomanConfig = {
       app: 'app',
       dist: 'dist',
-
   };
 
   try {
@@ -76,10 +75,23 @@ module.exports = function(grunt) {
     },
     clean: [yeomanConfig.dist],
     copy: {
-      build: {
-        //cwd: yeomanConfig.app,
-        //dest: yeomanConfig.dist,
-        //src: '**'
+      dev: {          
+        files: {
+          'dist/app/server.js': 'app/server.dev.js',
+          'dist/Procfile': 'Procfile',
+        }
+      },
+      test: {          
+        files: {
+          'dist/app/server.js': 'app/server.test.js',
+          'dist/Procfile': 'Procfile'
+        }
+      },
+      prod: {          
+        files: {
+          'dist/app/server.js': 'app/server.prod.js',
+          'dist/Procfile': 'Procfile'
+        }
       }
     },
     uglify: {
@@ -91,12 +103,21 @@ module.exports = function(grunt) {
           'dist/app/js/furyApp.min.js': ['app/js/**/*.js']
         }
       }
+    },
+    karma: {
+      unit: {
+        configFile: 'test/karma.conf.js'
+      }
     }
   });
 
+  // Test Tasks
+  grunt.registerTask("test", ["karma"]);
+
   // Build Tasks
-  grunt.registerTask("build:dev", ["jshint", "clean", "copy"]);
-  grunt.registerTask("build", ["jshint", "clean", "copy", "uglify"]);
+  grunt.registerTask("pack:dev", ["jshint", "test", "clean", "copy:dev"]);
+  grunt.registerTask("pack:test", ["jshint", "test", "clean", "copy:test", "uglify"]);
+  grunt.registerTask("pack:prod", ["jshint", "test", "clean", "copy:prod", "uglify"]);
 
   // Local Deployment Tasks
   grunt.registerTask("server", ["express:dev", "open", "watch"]);
