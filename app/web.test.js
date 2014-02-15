@@ -10,6 +10,7 @@ app.configure(function () {
   app.set('views', __dirname + '/views')
 
   
+
   // Middleware
   app.use(express.static(__dirname + '/css'));
   app.use(express.static(__dirname + '/fonts'));

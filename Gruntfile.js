@@ -2,12 +2,13 @@
 
 module.exports = function(grunt) {
   // load all grunt tasks
-  //require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  
   // configurable paths
   var yeomanConfig = {
       app: 'app',
-      dist: 'dist'
+      dist: 'dist',
+
   };
 
   try {
@@ -16,14 +17,18 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
-    yeoman: yeomanConfig,
     express: {
       options: {
         port: process.env.PORT || 9000
       },
       dev: {
         options: {
-          script: 'app/web.js'
+          script: 'app/web.dev.js'
+        }
+      },
+      test: {
+        options: {
+          script: 'app/web.test.js'
         }
       },
       prod: {
@@ -68,39 +73,36 @@ module.exports = function(grunt) {
       server: {
         path: "http://localhost:<%= express.options.port %>"
       }
-    }/*,
-    concat: {
-      options: {
-        separator: "\n"
-      },
-      dist: {
-        src: ["app/src/intro.js", 
-              "app/src/levels/*.js", 
-              "app/src/scenes/*.js", 
-              "app/src/controls/*.js", 
-              "app/src/uicontrols/*.js", 
-              "app/src/entities/*.js",
-              "app/src/engine/*.js",
-              "app/src/player.js",
-              "app/src/uivariables.js",
-              "app/src/game.js", 
-              "app/src/outro.js"],
-        dest: "build/src/<%= pkg.name %>.js"
+    },
+    clean: [yeomanConfig.dist],
+    copy: {
+      build: {
+        //cwd: yeomanConfig.app,
+        //dest: yeomanConfig.dist,
+        //src: '**'
       }
-    }*/
+    },
+    uglify: {
+      js: {
+        options: {
+          preserveComments: false
+        },
+        files: {
+          'dist/app/js/furyApp.min.js': ['app/js/**/*.js']
+        }
+      }
+    }
   });
 
-  // Load JSHint task
-  grunt.loadNpmTasks("grunt-contrib-jshint");
-  grunt.loadNpmTasks("grunt-contrib-watch");
-  grunt.loadNpmTasks("express");
-  grunt.loadNpmTasks("grunt-express-server");
-  grunt.loadNpmTasks("grunt-open");
+  // Build Tasks
+  grunt.registerTask("build:dev", ["jshint", "clean", "copy"]);
+  grunt.registerTask("build", ["jshint", "clean", "copy", "uglify"]);
 
-
-  grunt.registerTask("test", ["jshint"]);
+  // Local Deployment Tasks
   grunt.registerTask("server", ["express:dev", "open", "watch"]);
-  // Default task.
-  grunt.registerTask("default", "jshint");//, "concat");
+  grunt.registerTask("server:test", ["express:test", "open", "watch"]);
+  grunt.registerTask("server:prod", ["express:prod", "open", "watch"]);
 
+  // Default Task
+  grunt.registerTask("default", "server:dev");
 };
