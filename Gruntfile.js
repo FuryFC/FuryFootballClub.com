@@ -75,32 +75,50 @@ module.exports = function(grunt) {
     },
     clean: [yeomanConfig.dist],
     copy: {
+      main: {
+        files: [
+          { 'dist/Procfile': 'Procfile' },
+          { 'dist/app/js/libs/angular/angular.min.js': 'app/bower_components/angular/angular.min.js' },
+          { 'dist/app/js/libs/angular/angular.min.js': 'app/bower_components/angular/angular.min.js' },
+          { 'dist/app/js/libs/jquery/jquery.min.js': 'app/bower_components/jquery/jquery.min.js' },
+          { 'dist/app/js/libs/bootstrap/bootstrap.min.js': 'app/bower_components/bootstrap/dist/js/bootstrap.min.js' },
+          { 'dist/app/content/css/bootstrap.min.css': 'app/bower_components/bootstrap/dist/css/bootstrap.min.css' },
+          { expand: true, cwd: 'app/bower_components/bootstrap/dist/fonts/', src: ['**'], dest: 'dist/app/content/font/' },
+          { expand: true, cwd: 'app/img', src: ['**'], dest: 'dist/app/content/img/' },
+          { expand: true, cwd: 'app/fonts', src: ['**'], dest: 'dist/app/content/font/' },
+          { expand: true, cwd: 'app/views', src: ['**'], dest: 'dist/app/views/' }
+        ]
+      },
       dev: {          
-        files: {
-          'dist/app/server.js': 'app/server.dev.js',
-          'dist/Procfile': 'Procfile',
+        files: { 
+          'dist/app/server.js': 'app/server.dev.js' 
         }
       },
       test: {          
         files: {
-          'dist/app/server.js': 'app/server.test.js',
-          'dist/Procfile': 'Procfile'
+          'dist/app/server.js': 'app/server.test.js'
         }
       },
       prod: {          
         files: {
-          'dist/app/server.js': 'app/server.prod.js',
-          'dist/Procfile': 'Procfile'
+          'dist/app/server.js': 'app/server.prod.js'
         }
       }
     },
     uglify: {
-      js: {
+      minify: {
         options: {
           preserveComments: false
         },
         files: {
           'dist/app/js/furyApp.min.js': ['app/js/**/*.js']
+        }
+      }
+    },
+    cssmin: {
+      combine: {
+        files: {
+          'dist/app/content/css/fury.min.css': ['app/css/**/*.css']
         }
       }
     },
@@ -114,10 +132,15 @@ module.exports = function(grunt) {
   // Test Tasks
   grunt.registerTask("test", ["karma"]);
 
+  // Copy File Tasks
+  grunt.registerTask("copyFiles:dev", ["copy:main", "copy:dev"]);
+  grunt.registerTask("copyFiles:test", ["copy:main", "copy:test"]);
+  grunt.registerTask("copyFiles:prod", ["copy:main", "copy:prod"]);
+
   // Build Tasks
-  grunt.registerTask("pack:dev", ["jshint", "test", "clean", "copy:dev"]);
-  grunt.registerTask("pack:test", ["jshint", "test", "clean", "copy:test", "uglify"]);
-  grunt.registerTask("pack:prod", ["jshint", "test", "clean", "copy:prod", "uglify"]);
+  grunt.registerTask("pack:dev", ["jshint", "test", "clean", "copyFiles:dev", "uglify", "cssmin"]);
+  grunt.registerTask("pack:test", ["jshint", "test", "clean", "copyFiles:test", "uglify", "cssmin"]);
+  grunt.registerTask("pack:prod", ["jshint", "test", "clean", "copyFiles:prod", "uglify", "cssmin"]);
 
   // Local Deployment Tasks
   grunt.registerTask("server", ["express:dev", "open", "watch"]);
