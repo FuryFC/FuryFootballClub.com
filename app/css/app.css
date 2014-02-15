@@ -1,12 +1,43 @@
 /* app css stylesheet */
 
 * {
-  font-family: 'Roboto Condensed', serif; 
+  font-family: 'Roboto Condensed', 'san serif'; 
 }
 
 .container { 
   margin: 0; 
 }
+
+/* Nav */
+
+nav {
+  font-family: 'Roboto Condensed', 'san serif'; 
+  font-size: 2em;
+  height: 8em;
+  position: relative;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  display: inline;
+  margin: 0 10px;
+  padding: 0;
+  
+}
+
+nav ul li {
+  display: inline;
+  margin: 0 10px;
+}
+
+nav img {
+  width: 150px;
+
+  position:absolute; 
+  top:50%;
+}
+
 
 /* Theme */
 
