@@ -3,11 +3,12 @@
 module.exports = function(grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-
+  
   // configurable paths
   var yeomanConfig = {
       app: 'app',
-      dist: 'dist'
+      dist: 'dist',
+
   };
 
   try {
@@ -16,7 +17,6 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     pkg: grunt.file.readJSON("package.json"),
-    yeoman: yeomanConfig,
     express: {
       options: {
         port: process.env.PORT || 9000
@@ -73,15 +73,36 @@ module.exports = function(grunt) {
       server: {
         path: "http://localhost:<%= express.options.port %>"
       }
+    },
+    clean: [yeomanConfig.dist],
+    copy: {
+      build: {
+        //cwd: yeomanConfig.app,
+        //dest: yeomanConfig.dist,
+        //src: '**'
+      }
+    },
+    uglify: {
+      js: {
+        options: {
+          preserveComments: false
+        },
+        files: {
+          'dist/app/js/furyApp.min.js': ['app/js/**/*.js']
+        }
+      }
     }
   });
 
-  grunt.registerTask("test", ["jshint"]);
+  // Build Tasks
+  grunt.registerTask("build:dev", ["jshint", "clean", "copy"]);
+  grunt.registerTask("build", ["jshint", "clean", "copy", "uglify"]);
+
+  // Local Deployment Tasks
   grunt.registerTask("server", ["express:dev", "open", "watch"]);
   grunt.registerTask("server:test", ["express:test", "open", "watch"]);
   grunt.registerTask("server:prod", ["express:prod", "open", "watch"]);
 
-  // Default task.
-  grunt.registerTask("default", "jshint");//, "concat");
-
+  // Default Task
+  grunt.registerTask("default", "server:dev");
 };
