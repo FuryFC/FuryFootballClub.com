@@ -5,28 +5,27 @@ var express = require("express"),
 var app = express();
 
 app.configure(function () {
+  console.log('Starting application, root=' + __dirname);
+
   app.set('port', process.env.PORT || 5000);
   app.set('View Engine', 'jade');
-  app.set('views', __dirname + '/views')
-
+  app.set('views', __dirname + '/views');
   
-
   // Middleware
-  app.use(express.static(__dirname + '/css'));
-  app.use(express.static(__dirname + '/fonts'));
-  app.use(express.static(__dirname + '/img'));
-  app.use(express.static(__dirname + '/bower_components'));
+  app.use(express.static(__dirname + '/content/css'));
+  app.use(express.static(__dirname + '/content/fonts'));
+  app.use(express.static(__dirname + '/content/img'));
   app.use(express.static(__dirname + '/js'));
-  app.use(express.static(__dirname + '/lib'));
 
   app.use(logfmt.requestLogger());
-  app.use(express.bodyParser());
+  app.use(express.json());
   //app.use(express.methodOverride());
   app.use(app.router);
   
 });
 
 app.get('/', function (req, res) {
+  console.log('router');
   res.render('index.jade');
 });
 
