@@ -129,7 +129,7 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask("heroku:production", ["pack:test"]);
+  
 
   // Test Tasks
   grunt.registerTask("test", ["karma"]);
@@ -148,6 +148,8 @@ module.exports = function(grunt) {
   grunt.registerTask("server", ["express:dev", "open", "watch"]);
   grunt.registerTask("server:test", ["express:test", "open", "watch"]);
   grunt.registerTask("server:prod", ["express:prod", "open", "watch"]);
+
+  grunt.registerTask("heroku", ["pack:test"]);
 
   // Default Task
   grunt.registerTask("default", "server:dev");
