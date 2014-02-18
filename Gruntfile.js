@@ -129,6 +129,8 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.registerTask("heroku:production", ["pack:test"]);
+
   // Test Tasks
   grunt.registerTask("test", ["karma"]);
 
