@@ -3,6 +3,7 @@
   "description": "Minnesota Fury FC's Official Website",
   "repository": "https://github.com/FuryFC/FuryFootballClub.com",
   "devDependencies": {
+    "matchdep": "~0.3.0",
     "grunt": "~0.4.2",
     "grunt-contrib-jshint": "~0.7.2",
     "grunt-contrib-watch": "~0.5.3",
@@ -10,7 +11,6 @@
     "grunt-open": "~0.2.2",
     "grunt-express-server": "~0.4.11",
     "phantomjs": "~1.9.7-1",
-    "matchdep": "~0.3.0",
     "grunt-cli": "~0.1.13",
     "grunt-contrib-copy": "~0.5.0",
     "grunt-contrib-clean": "~0.5.0",
