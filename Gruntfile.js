@@ -2,7 +2,7 @@
 
 module.exports = function(grunt) {
   // load all grunt tasks
-  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  //require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
   
   // configurable paths
   var yeomanConfig = {
@@ -129,7 +129,14 @@ module.exports = function(grunt) {
     }
   });
 
-  
+  grunt.loadNpmTasks("grunt-contrib-copy");
+  grunt.loadNpmTasks("grunt-contrib-clean");
+  grunt.loadNpmTasks("grunt-contrib-concat");
+  grunt.loadNpmTasks("grunt-contrib-cssmin");
+  grunt.loadNpmTasks("grunt-contrib-uglify");
+  grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks("grunt-contrib-jshint");
+  grunt.loadNpmTasks("grunt-karma");
 
   // Test Tasks
   grunt.registerTask("test", ["karma"]);
