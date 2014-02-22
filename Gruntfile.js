@@ -156,7 +156,7 @@ module.exports = function(grunt) {
   grunt.registerTask("server:test", ["express:test", "open", "watch"]);
   grunt.registerTask("server:prod", ["express:prod", "open", "watch"]);
 
-  grunt.registerTask("heroku", ["pack:test"]);
+  grunt.registerTask("heroku", ["clean", "copyFiles:dev", "uglify", "cssmin"]);
 
   // Default Task
   grunt.registerTask("default", "server:dev");
