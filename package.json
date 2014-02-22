@@ -36,5 +36,8 @@
     "express": "~3.4.8",
     "jade": "*",
     "logfmt": "~0.20.0"
+  },
+  "scripts": {
+    "postinstall": "./node_modules/grunt-cli/bin/grunt"
   }
 }
