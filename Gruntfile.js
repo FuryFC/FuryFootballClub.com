@@ -2,12 +2,12 @@
 
 module.exports = function(grunt) {
   // load all grunt tasks
-  //require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+  require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
   
   // configurable paths
   var yeomanConfig = {
       app: 'app',
-      dist: 'dist',
+      dist: 'dist'
   };
 
   try {
@@ -20,19 +20,9 @@ module.exports = function(grunt) {
       options: {
         port: process.env.PORT || 9000
       },
-      dev: {
+      env: {
         options: {
-          script: 'app/web.dev.js'
-        }
-      },
-      test: {
-        options: {
-          script: 'app/web.test.js'
-        }
-      },
-      prod: {
-        options: {
-          script: 'app/web.js'
+          script: 'dist/app/server.js'
         }
       }
     },
@@ -78,14 +68,14 @@ module.exports = function(grunt) {
       main: {
         files: [
           { 'dist/Procfile': 'Procfile' },
-          { 'dist/app/js/libs/angular/angular.min.js': 'app/bower_components/angular/angular.min.js' },
-          { 'dist/app/js/libs/angular/angular.min.js': 'app/bower_components/angular/angular.min.js' },
-          { 'dist/app/js/libs/jquery/jquery.min.js': 'app/bower_components/jquery/jquery.min.js' },
-          { 'dist/app/js/libs/bootstrap/bootstrap.min.js': 'app/bower_components/bootstrap/dist/js/bootstrap.min.js' },
-          { 'dist/app/content/css/bootstrap.min.css': 'app/bower_components/bootstrap/dist/css/bootstrap.min.css' },
-          { expand: true, cwd: 'app/bower_components/bootstrap/dist/fonts/', src: ['**'], dest: 'dist/app/content/font/' },
-          { expand: true, cwd: 'app/img', src: ['**'], dest: 'dist/app/content/img/' },
-          { expand: true, cwd: 'app/fonts', src: ['**'], dest: 'dist/app/content/font/' },
+          { 'dist/app/public/js/libs/angular/angular.min.js': 'app/bower_components/angular/angular.min.js' },
+          { 'dist/app/public/js/libs/angular/angular.min.js': 'app/bower_components/angular/angular.min.js' },
+          { 'dist/app/public/js/libs/jquery/jquery.min.js': 'app/bower_components/jquery/jquery.min.js' },
+          { 'dist/app/public/js/libs/bootstrap/bootstrap.min.js': 'app/bower_components/bootstrap/dist/js/bootstrap.min.js' },
+          { 'dist/app/public/content/css/bootstrap.min.css': 'app/bower_components/bootstrap/dist/css/bootstrap.min.css' },
+          { expand: true, cwd: 'app/bower_components/bootstrap/dist/fonts/', src: ['**'], dest: 'dist/app/public/content/font/' },
+          { expand: true, cwd: 'app/img', src: ['**'], dest: 'dist/app/public/content/img/' },
+          { expand: true, cwd: 'app/fonts', src: ['**'], dest: 'dist/app/public/content/font/' },
           { expand: true, cwd: 'app/views', src: ['**'], dest: 'dist/app/views/' }
         ]
       },
@@ -111,14 +101,14 @@ module.exports = function(grunt) {
           preserveComments: false
         },
         files: {
-          'dist/app/js/furyApp.min.js': ['app/js/**/*.js']
+          'dist/app/public/js/furyApp.min.js': ['app/js/**/*.js']
         }
       }
     },
     cssmin: {
       combine: {
         files: {
-          'dist/app/content/css/fury.min.css': ['app/css/**/*.css']
+          'dist/app/public/content/css/fury.min.css': ['app/css/**/*.css']
         }
       }
     },
@@ -128,15 +118,6 @@ module.exports = function(grunt) {
       }
     }
   });
-
-  grunt.loadNpmTasks("grunt-contrib-copy");
-  grunt.loadNpmTasks("grunt-contrib-clean");
-  grunt.loadNpmTasks("grunt-contrib-concat");
-  grunt.loadNpmTasks("grunt-contrib-cssmin");
-  grunt.loadNpmTasks("grunt-contrib-uglify");
-  grunt.loadNpmTasks("grunt-contrib-watch");
-  grunt.loadNpmTasks("grunt-contrib-jshint");
-  grunt.loadNpmTasks("grunt-karma");
 
   // Test Tasks
   grunt.registerTask("test", ["karma"]);
@@ -152,12 +133,10 @@ module.exports = function(grunt) {
   grunt.registerTask("pack:prod", ["jshint", "test", "clean", "copyFiles:prod", "uglify", "cssmin"]);
 
   // Local Deployment Tasks
-  grunt.registerTask("server", ["express:dev", "open", "watch"]);
-  grunt.registerTask("server:test", ["express:test", "open", "watch"]);
-  grunt.registerTask("server:prod", ["express:prod", "open", "watch"]);
+  grunt.registerTask("server", ["express", "open", "watch"]);
 
   grunt.registerTask("heroku", ["clean", "copyFiles:dev", "uglify", "cssmin"]);
 
   // Default Task
-  grunt.registerTask("default", "server:dev");
+  grunt.registerTask("default", ["pack:test", "server:dev"]);
 };

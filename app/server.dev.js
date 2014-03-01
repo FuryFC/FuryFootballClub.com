@@ -12,16 +12,11 @@ app.configure(function () {
   app.set('views', __dirname + '/views');
   
   // Middleware
-  app.use(express.static(__dirname + '/content/css'));
-  app.use(express.static(__dirname + '/content/fonts'));
-  app.use(express.static(__dirname + '/content/img'));
-  app.use(express.static(__dirname + '/js'));
-
   app.use(logfmt.requestLogger());
   app.use(express.json());
   //app.use(express.methodOverride());
   app.use(app.router);
-  
+  app.use(express.static(path.join(__dirname, 'public')));
 });
 
 app.get('/', function (req, res) {
