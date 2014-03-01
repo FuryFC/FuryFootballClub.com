@@ -54,7 +54,7 @@ module.exports = function(grunt) {
     watch: {
       opions: {
         files: ["app/**/*.js", "app/css/*.css", "app/lib/**/*.js", "app/**/*.html"],
-        tasks: ["jshint"],
+        tasks: ["pack:test"],
         livereload: true
       },
     },
@@ -138,5 +138,5 @@ module.exports = function(grunt) {
   grunt.registerTask("heroku", ["clean", "copyFiles:dev", "uglify", "cssmin"]);
 
   // Default Task
-  grunt.registerTask("default", ["pack:test", "server:dev"]);
+  grunt.registerTask("default", ["pack:test", "server"]);
 };

@@ -11,14 +11,11 @@ html(lang="en", ng-app="furyApp")
     link(href='http://fonts.googleapis.com/css?family=Roboto%20Condensed:400,700' rel='stylesheet' type='text/css')
 
   body
-    nav
-      ul
-        li Home
-        li Schedule
-      img(src="img/FuryLogo.png")
-      ul
-        li Roster
-        li About  
+    header
+      h1
+        | Minnesota
+        img(src="img/FuryLogo.png")
+        | Fury FC
     div.front-section.news.gutter
         article
             div.caption.gutter
@@ -26,21 +23,69 @@ html(lang="en", ng-app="furyApp")
                 p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus, ipsum a feugiat tincidunt, arcu turpis egestas risus, quis convallis ligula tortor a turpis. Cras vel dolor in mauris blandit.
             img(src="img/team.jpg")
 
-    div.front-section.odd.gutter
-        h1 Schedule
-        table
-          tr
-              th Team
-              th Time
-              th Venue
-          tr
-              td Quatch FC
-              td 1-1-14
-              td NSC
-          tr
-              td MN United FC
-              td 1-1-14
-              td NSC
+    div.front-section.odd.gutter.row
+      div.fixture.col-sm-2
+        header
+          time(datetime="2014-03-01") 03-01
+          span Fixture
+        div.team
+          span.name Fury
+          span.score -
+        div.team
+          span.name TFC
+          span.score -
+      div.fixture.col-sm-2
+        header
+          time(datetime="2014-03-01") 03-01
+          span Fixture
+        div.team
+          span.name Fury
+          span.score -
+        div.team
+          span.name TFC
+          span.score -
+      div.fixture.col-sm-2
+        header
+          time(datetime="2014-03-01") 03-01
+          span Fixture
+        div.team
+          span.name Fury
+          span.score -
+        div.team
+          span.name TFC
+          span.score -
+      div.fixture.col-sm-2
+        header
+          time(datetime="2014-03-01") 03-01
+          span Fixture
+        div.team
+          span.name Fury
+          span.score -
+        div.team
+          span.name TFC
+          span.score -
+      div.fixture.col-sm-2
+        header
+          time(datetime="2014-03-01") 03-01
+          span Fixture
+        div.team
+          span.name Fury
+          span.score -
+        div.team
+          span.name TFC
+          span.score -
+      div.fixture.col-sm-2
+        header
+          time(datetime="2014-03-01") 03-01
+          span Fixture
+        div.team
+          span.name Fury
+          span.score -
+        div.team
+          span.name TFC
+          span.score -
+
+
 
     div.front-section.gutter 
       div.row
