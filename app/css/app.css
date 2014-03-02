@@ -4,8 +4,8 @@
   font-family: 'Roboto Condensed', 'san serif'; 
 }
 
-.container { 
-  margin: 0; 
+body > header, .container {
+  background-color: #333;
 }
 
 /* Header */
@@ -22,57 +22,65 @@ header h1 {
   text-transform:uppercase;
 }
 
-header h1 img {
+header img {
   padding-left: .5em;
   padding-right: .5em;
   width: 200px;
 }
 
+header .header-bar {
+  background-color: gray;
+  height:3em;
+}
 /* Nav */
 
-nav {
-  font-family: 'Roboto Condensed', 'san serif'; 
-  font-size: 2em;
-  height: 8em;
+header .navbar {
+  border-bottom: 10px solid #eee;
+  font-family: 'Roboto Condensed', 'san serif';
+  font-size: 20px;
+  margin: 0;
+}
+
+header .navbar-brand {
+  padding: 0 15px;
   position: relative;
-  text-align: center;
-}
-
-nav ul {
-  list-style-type: none;
-  display: inline;
-  margin: 0 10px;
-  padding: 0;
-  
-}
-
-nav ul li {
-  display: inline;
-  margin: 0 10px;
-}
-
-nav img {
   width: 150px;
-
-  position:absolute; 
-  top:50%;
 }
 
+header .navbar-brand > img {
+  left: 0;
+  position: absolute;
+  top: -20px;
+  width: 115px;
+  z-index: 1;
+}
+
+header .navbar-default {
+  background-color: #eee;
+}
+
+header .navbar-default .navbar-nav>li>a {
+  color: #eee;
+}
+
+header .navbar, header .container {
+  background-color: #000;
+}
 
 /* Theme */
 
 body { 
-  background-color: #131313; 
+  background-color: #aaa; 
   color: #eee;
 }
 
 .front-section {
   display: block;
-  background-color:  #131313;
 }
 
 .front-section.odd {
-  background-color: #333;
+  background-color: #eee;
+  color: #001600;
 }
 
 .gutter { 
@@ -86,7 +94,7 @@ body {
 }
 
 .news article .caption { 
-  background-color: #131313; 
+  background-color: #001600; 
   bottom: 0; 
   color: #ddd;
   opacity:0.9;
@@ -110,7 +118,7 @@ body {
 }
 
 .news.thumb article .caption {
-  background-color: #131313; 
+  background-color: #001600; 
   bottom: 0; 
   color: #ddd;
   opacity:0.9;
@@ -142,4 +150,13 @@ body {
 
 .fixture > .team > .score {
   float: right;
+}
+
+/* Footer */
+footer {
+  background-color: #000;
+  border-top: 10px solid #eee;
+  color: #eee;
+  min-height: 100px;
+  text-align: center;
 }

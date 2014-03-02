@@ -12,117 +12,136 @@ html(lang="en", ng-app="furyApp")
 
   body
     header
-      h1
-        | Minnesota
-        img(src="img/FuryLogo.png")
-        | Fury FC
-    div.front-section.news.gutter
-        article
-            div.caption.gutter
+      div.header-bar
+      nav.navbar.navbar-default.navbar-static-top(role="navigation")
+        div.container
+          div.navbar-header
+            button.navbar-toggle(type="button" data-toggle="collapse" data-target=".navbar-collapse")
+              span.sr-only Toggle navigation
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            a.navbar-brand(href="#")
+              img(src="img/FuryLogo.png")
+          div.navbar-collapse.collapse
+            ul.nav.navbar-nav
+              li
+                a(href="#") Home
+              li
+                a(href="#") News
+              li
+                a(href="#") Club
+              li
+                a(href="#") Schedule
+    div.container
+      div.front-section.news.row
+          article
+              div.caption.gutter
+                  h1 Neque porro quisquam est
+                  p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus, ipsum a feugiat tincidunt, arcu turpis egestas risus, quis convallis ligula tortor a turpis. Cras vel dolor in mauris blandit.
+              img(src="img/team.jpg")
+
+      div.front-section.odd.gutter.row
+        div.fixture.col-sm-2
+          header
+            time(datetime="2014-03-01") 03-01
+            span Fixture
+          div.team
+            span.name Fury
+            span.score -
+          div.team
+            span.name TFC
+            span.score -
+        div.fixture.col-sm-2
+          header
+            time(datetime="2014-03-01") 03-01
+            span Fixture
+          div.team
+            span.name Fury
+            span.score -
+          div.team
+            span.name TFC
+            span.score -
+        div.fixture.col-sm-2
+          header
+            time(datetime="2014-03-01") 03-01
+            span Fixture
+          div.team
+            span.name Fury
+            span.score -
+          div.team
+            span.name TFC
+            span.score -
+        div.fixture.col-sm-2
+          header
+            time(datetime="2014-03-01") 03-01
+            span Fixture
+          div.team
+            span.name Fury
+            span.score -
+          div.team
+            span.name TFC
+            span.score -
+        div.fixture.col-sm-2
+          header
+            time(datetime="2014-03-01") 03-01
+            span Fixture
+          div.team
+            span.name Fury
+            span.score -
+          div.team
+            span.name TFC
+            span.score -
+        div.fixture.col-sm-2
+          header
+            time(datetime="2014-03-01") 03-01
+            span Fixture
+          div.team
+            span.name Fury
+            span.score -
+          div.team
+            span.name TFC
+            span.score -
+
+
+
+      div.front-section.gutter 
+        div.row
+          div.news.thumb.col-sm-4.gutter
+            article
+              div.caption
                 h1 Neque porro quisquam est
-                p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus, ipsum a feugiat tincidunt, arcu turpis egestas risus, quis convallis ligula tortor a turpis. Cras vel dolor in mauris blandit.
-            img(src="img/team.jpg")
-
-    div.front-section.odd.gutter.row
-      div.fixture.col-sm-2
-        header
-          time(datetime="2014-03-01") 03-01
-          span Fixture
-        div.team
-          span.name Fury
-          span.score -
-        div.team
-          span.name TFC
-          span.score -
-      div.fixture.col-sm-2
-        header
-          time(datetime="2014-03-01") 03-01
-          span Fixture
-        div.team
-          span.name Fury
-          span.score -
-        div.team
-          span.name TFC
-          span.score -
-      div.fixture.col-sm-2
-        header
-          time(datetime="2014-03-01") 03-01
-          span Fixture
-        div.team
-          span.name Fury
-          span.score -
-        div.team
-          span.name TFC
-          span.score -
-      div.fixture.col-sm-2
-        header
-          time(datetime="2014-03-01") 03-01
-          span Fixture
-        div.team
-          span.name Fury
-          span.score -
-        div.team
-          span.name TFC
-          span.score -
-      div.fixture.col-sm-2
-        header
-          time(datetime="2014-03-01") 03-01
-          span Fixture
-        div.team
-          span.name Fury
-          span.score -
-        div.team
-          span.name TFC
-          span.score -
-      div.fixture.col-sm-2
-        header
-          time(datetime="2014-03-01") 03-01
-          span Fixture
-        div.team
-          span.name Fury
-          span.score -
-        div.team
-          span.name TFC
-          span.score -
-
-
-
-    div.front-section.gutter 
-      div.row
-        div.news.thumb.col-sm-4.gutter
-          article
-            div.caption
-              h1 Neque porro quisquam est
-            img(src="img/team.jpg")
-        div.news.thumb.col-sm-4.gutter
-          article
-            div.caption
-              h1 Neque porro quisquam est
-            img(src="img/team.jpg")
-        div.clearfix.visible-xs
-        div.news.thumb.col-sm-4.gutter
-          article
-            div.caption
-              h1 Neque porro quisquam est
-            img(src="img/team.jpg")
-      div.row
-        div.news.thumb.col-sm-4.gutter
-          article
-            div.caption
-              h1 Neque porro quisquam est
-            img(src="img/team.jpg")
-        div.news.thumb.col-sm-4.gutter
-          article
-            div.caption
-              h1 Neque porro quisquam est
-            img(src="img/team.jpg")
-        div.clearfix.visible-xs
-        div.news.thumb.col-sm-4.gutter
-          article
-            div.caption
-              h1 Neque porro quisquam est
-            img(src="img/team.jpg")
-        
+              img(src="img/team.jpg")
+          div.news.thumb.col-sm-4.gutter
+            article
+              div.caption
+                h1 Neque porro quisquam est
+              img(src="img/team.jpg")
+          div.clearfix.visible-xs
+          div.news.thumb.col-sm-4.gutter
+            article
+              div.caption
+                h1 Neque porro quisquam est
+              img(src="img/team.jpg")
+        div.row
+          div.news.thumb.col-sm-4.gutter
+            article
+              div.caption
+                h1 Neque porro quisquam est
+              img(src="img/team.jpg")
+          div.news.thumb.col-sm-4.gutter
+            article
+              div.caption
+                h1 Neque porro quisquam est
+              img(src="img/team.jpg")
+          div.clearfix.visible-xs
+          div.news.thumb.col-sm-4.gutter
+            article
+              div.caption
+                h1 Neque porro quisquam est
+              img(src="img/team.jpg")
+    
+    footer With Fury By Fury FC  
             
     script(src="js/libs/jquery/jquery.min.js")
     script(src="js/libs/bootstrap/bootstrap.min.js")

@@ -53,7 +53,7 @@ module.exports = function(grunt) {
     },
     watch: {
       opions: {
-        files: ["app/**/*.js", "app/css/*.css", "app/lib/**/*.js", "app/**/*.html"],
+        files: ["app/**/*.js", "app/css/*.css", "app/lib/**/*.js", "app/**/*.html", "app/**/*.jade"],
         tasks: ["pack:test"],
         livereload: true
       },
