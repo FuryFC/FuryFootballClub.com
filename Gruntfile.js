@@ -67,7 +67,7 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-          { 'dist/Procfile': 'Procfile' },
+          //{ 'dist/Procfile': 'Procfile' },
           { 'dist/app/public/js/libs/angular/angular.min.js': 'app/bower_components/angular/angular.min.js' },
           { 'dist/app/public/js/libs/angular/angular.min.js': 'app/bower_components/angular/angular.min.js' },
           { 'dist/app/public/js/libs/jquery/jquery.min.js': 'app/bower_components/jquery/jquery.min.js' },
