@@ -1,6 +1,7 @@
-var express = require("express"),
-    logfmt = require("logfmt"),
-    http = require("http");
+var express = require('express'),
+    logfmt = require('logfmt'),
+    http = require('http'),
+    path = require('path');
 
 var app = express();
 
@@ -8,15 +9,19 @@ app.configure(function () {
   console.log('Starting application, root=' + __dirname);
 
   app.set('port', process.env.PORT || 5000);
-  app.set('View Engine', 'jade');
   app.set('views', __dirname + '/views');
+  app.set('View Engine', 'jade');
   
-  // Middleware
   app.use(logfmt.requestLogger());
   app.use(express.json());
   //app.use(express.methodOverride());
   app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public')));
+
+
+  app.use('/css',express.static(path.join(__dirname, 'public/content/css')));
+  app.use('/font',express.static(path.join(__dirname, 'public/content/font')));
+  app.use('/img',express.static(path.join(__dirname, 'public/content/img')));
+  app.use('/js',express.static(path.join(__dirname, 'public/js')));
 });
 
 app.get('/', function (req, res) {
