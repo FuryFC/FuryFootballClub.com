@@ -142,7 +142,7 @@ module.exports = function(grunt) {
   // Local Deployment Tasks
   grunt.registerTask("server", ["express", "open", "watch"]);
 
-  grunt.registerTask("heroku", ["clean", "copyFiles:dev", "uglify", "cssmin"]);
+  grunt.registerTask("heroku", ["clean", "copyFiles:dev", "uglify", "less:prod"]);
 
   // Default Task
   grunt.registerTask("default", ["pack:test", "server"]);
