@@ -20,6 +20,7 @@ module.exports = function(grunt) {
       options: {
         port: process.env.PORT || 9000
       },
+<<<<<<< HEAD
       dev: {
         options: {
           script: 'app/web.dev.js'
@@ -33,6 +34,11 @@ module.exports = function(grunt) {
       prod: {
         options: {
           script: 'app/web.js'
+=======
+      env: {
+        options: {
+          script: 'dist/app/server.js'
+>>>>>>> origin/Development
         }
       }
     },
@@ -63,8 +69,8 @@ module.exports = function(grunt) {
     },
     watch: {
       opions: {
-        files: ["app/**/*.js", "app/css/*.css", "app/lib/**/*.js", "app/**/*.html"],
-        tasks: ["jshint"],
+        files: ["app/**/*.js", "app/css/*.css", "app/lib/**/*.js", "app/**/*.html", "app/**/*.jade"],
+        tasks: ["pack:test"],
         livereload: true
       },
     },
@@ -77,6 +83,7 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
+<<<<<<< HEAD
           { 'dist/Procfile': 'Procfile' },
           { 'dist/app/js/libs/angular/angular.min.js': 'app/bower_components/angular/angular.min.js' },
           { 'dist/app/js/libs/angular/angular.min.js': 'app/bower_components/angular/angular.min.js' },
@@ -86,6 +93,17 @@ module.exports = function(grunt) {
           { expand: true, cwd: 'app/bower_components/bootstrap/dist/fonts/', src: ['**'], dest: 'dist/app/content/font/' },
           { expand: true, cwd: 'app/img', src: ['**'], dest: 'dist/app/content/img/' },
           { expand: true, cwd: 'app/fonts', src: ['**'], dest: 'dist/app/content/font/' },
+=======
+          //{ 'dist/Procfile': 'Procfile' },
+          { 'dist/app/public/js/libs/angular/angular.min.js': 'app/bower_components/angular/angular.min.js' },
+          { 'dist/app/public/js/libs/angular/angular.min.js': 'app/bower_components/angular/angular.min.js' },
+          { 'dist/app/public/js/libs/jquery/jquery.min.js': 'app/bower_components/jquery/jquery.min.js' },
+          { 'dist/app/public/js/libs/bootstrap/bootstrap.min.js': 'app/bower_components/bootstrap/dist/js/bootstrap.min.js' },
+          { 'dist/app/public/content/css/bootstrap.min.css': 'app/bower_components/bootstrap/dist/css/bootstrap.min.css' },
+          { expand: true, cwd: 'app/bower_components/bootstrap/dist/fonts/', src: ['**'], dest: 'dist/app/public/content/font/' },
+          { expand: true, cwd: 'app/img', src: ['**'], dest: 'dist/app/public/content/img/' },
+          { expand: true, cwd: 'app/fonts', src: ['**'], dest: 'dist/app/public/content/font/' },
+>>>>>>> origin/Development
           { expand: true, cwd: 'app/views', src: ['**'], dest: 'dist/app/views/' }
         ]
       },
@@ -111,14 +129,22 @@ module.exports = function(grunt) {
           preserveComments: false
         },
         files: {
+<<<<<<< HEAD
           'dist/app/js/furyApp.min.js': ['app/js/**/*.js']
+=======
+          'dist/app/public/js/furyApp.min.js': ['app/js/**/*.js']
+>>>>>>> origin/Development
         }
       }
     },
     cssmin: {
       combine: {
         files: {
+<<<<<<< HEAD
           'dist/app/content/css/fury.min.css': ['app/css/**/*.css']
+=======
+          'dist/app/public/content/css/fury.min.css': ['app/css/**/*.css']
+>>>>>>> origin/Development
         }
       }
     },
@@ -129,6 +155,7 @@ module.exports = function(grunt) {
     }
   });
 
+<<<<<<< HEAD
   
 
   // Test Tasks
@@ -153,4 +180,26 @@ module.exports = function(grunt) {
 
   // Default Task
   grunt.registerTask("default", "server:dev");
+=======
+  // Test Tasks
+  grunt.registerTask("test", ["karma"]);
+
+  // Copy File Tasks
+  grunt.registerTask("copyFiles:dev", ["copy:main", "copy:dev"]);
+  grunt.registerTask("copyFiles:test", ["copy:main", "copy:test"]);
+  grunt.registerTask("copyFiles:prod", ["copy:main", "copy:prod"]);
+
+  // Build Tasks
+  grunt.registerTask("pack:dev", ["jshint", "test", "clean", "copyFiles:dev", "uglify", "cssmin"]);
+  grunt.registerTask("pack:test", ["jshint", "test", "clean", "copyFiles:test", "uglify", "cssmin"]);
+  grunt.registerTask("pack:prod", ["jshint", "test", "clean", "copyFiles:prod", "uglify", "cssmin"]);
+
+  // Local Deployment Tasks
+  grunt.registerTask("server", ["express", "open", "watch"]);
+
+  grunt.registerTask("heroku", ["clean", "copyFiles:dev", "uglify", "cssmin"]);
+
+  // Default Task
+  grunt.registerTask("default", ["pack:test", "server"]);
+>>>>>>> origin/Development
 };
