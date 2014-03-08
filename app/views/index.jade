@@ -5,9 +5,7 @@ html(lang="en", ng-app="furyApp")
     meta(name="viewport", content="initial-scale=1, maximum-scale=1, user-scalable=no")
     title Fury FC :: Minnesota's Premier Football Club
 
-    link(rel="stylesheet", href="css/bootstrap.min.css")
     link(rel="stylesheet", href="css/fury.min.css")
-
     link(href='http://fonts.googleapis.com/css?family=Roboto%20Condensed:400,700' rel='stylesheet' type='text/css')
 
   body
@@ -34,9 +32,9 @@ html(lang="en", ng-app="furyApp")
               li
                 a(href="#") Schedule
     div.container
-      div.front-section.news.row
+      div.front-section.featured.row
           article
-              div.caption.gutter
+              div.caption.gutter-sides
                   h1 Neque porro quisquam est
                   p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus, ipsum a feugiat tincidunt, arcu turpis egestas risus, quis convallis ligula tortor a turpis. Cras vel dolor in mauris blandit.
               img(src="img/team.jpg")
@@ -103,46 +101,51 @@ html(lang="en", ng-app="furyApp")
             span.name TFC
             span.score -
 
-
-
-      div.front-section.gutter 
+      div.front-section.gutter.row
         div.row
-          div.news.thumb.col-sm-4.gutter
-            article
-              div.caption
-                h1 Neque porro quisquam est
-              img(src="img/team.jpg")
-          div.news.thumb.col-sm-4.gutter
-            article
-              div.caption
-                h1 Neque porro quisquam est
-              img(src="img/team.jpg")
+          div.col-sm-4
+            div.thumbnail
+              article
+                img(src="img/team.jpg")
+                div.caption
+                  h1 Neque porro quisquam est
+          div.col-sm-4
+            div.thumbnail
+              article
+                img(src="img/team.jpg")
+                div.caption
+                  h1 Neque porro quisquam est
           div.clearfix.visible-xs
-          div.news.thumb.col-sm-4.gutter
-            article
-              div.caption
-                h1 Neque porro quisquam est
-              img(src="img/team.jpg")
+          div.col-sm-4
+            div.thumbnail
+              article
+                img(src="img/team.jpg")
+                div.caption
+                  h1 Neque porro quisquam est
         div.row
-          div.news.thumb.col-sm-4.gutter
-            article
-              div.caption
-                h1 Neque porro quisquam est
-              img(src="img/team.jpg")
-          div.news.thumb.col-sm-4.gutter
-            article
-              div.caption
-                h1 Neque porro quisquam est
-              img(src="img/team.jpg")
+          div.col-sm-4
+            div.thumbnail
+              article
+                img(src="img/team.jpg")
+                div.caption
+                  h1 Neque porro quisquam est
+          div.col-sm-4
+            div.thumbnail
+              article
+                img(src="img/team.jpg")
+                div.caption
+                  h1 Neque porro quisquam est
           div.clearfix.visible-xs
-          div.news.thumb.col-sm-4.gutter
-            article
-              div.caption
-                h1 Neque porro quisquam est
-              img(src="img/team.jpg")
-    
-    footer With Fury By Fury FC  
-            
+          div.col-sm-4
+            div.thumbnail
+              article
+                img(src="img/team.jpg")
+                div.caption
+                  h1 Neque porro quisquam est
+          div.clearfix.visible-xs
+
+    footer With <span class="glyphicon glyphicon-fire"></span> By Fury FC
+
     script(src="js/libs/jquery/jquery.min.js")
     script(src="js/libs/bootstrap/bootstrap.min.js")
     script(src="js/libs/angular/angular.min.js")

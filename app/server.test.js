@@ -11,12 +11,10 @@ app.configure(function () {
   app.set('port', process.env.PORT || 5000);
   app.set('views', __dirname + '/views');
   app.set('View Engine', 'jade');
-  
+
   app.use(logfmt.requestLogger());
   app.use(express.json());
-  //app.use(express.methodOverride());
   app.use(app.router);
-
 
   app.use('/css',express.static(path.join(__dirname, 'public/content/css')));
   app.use('/font',express.static(path.join(__dirname, 'public/content/font')));
@@ -28,7 +26,6 @@ app.get('/', function (req, res) {
   console.log('router');
   res.render('index.jade');
 });
-
 
 http.createServer(app).listen(app.get('port'), function(req, res) {
   console.log('Listening on ' + app.get('port'));
