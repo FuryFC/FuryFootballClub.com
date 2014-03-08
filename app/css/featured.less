@@ -24,3 +24,35 @@
     }
   }
 }
+
+
+@media (max-width: @screen-sm-max) {
+  .featured {
+    article{
+      .caption{
+        text-align: center;
+
+        h1 {
+          margin-top: 10px;
+        }
+
+        p {
+          .responsive-invisibility();
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: @screen-xs-max) {
+  .featured {
+    article {
+      .caption {
+        h1 {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+}
