@@ -1,6 +1,12 @@
 /* Fixture Section */
 
 .fixture {
+  margin-bottom: .5em;
+
+  &:last-of-type {
+    border: 0;
+  }
+
   header{
       text-align: left;
 
@@ -15,5 +21,14 @@
     .score{
       float: right;
     }
+  }
+}
+
+/* Responsive Fixtures */
+@media (max-width: @screen-xs-max) {
+  .fixture {
+    margin-bottom: .5em;
+    padding-bottom: .5em;
+    border-bottom: 1px solid;
   }
 }
