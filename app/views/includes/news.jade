@@ -3,6 +3,6 @@ div.front-section.gutter.row(ng-controller="FeaturedController")
     div.col-sm-4(ng-repeat="news in recentNews")
       div.thumbnail
         article
-          img(src="img/team.jpg")
+          img(ng-src="{{ news.img }}")
           div.caption
-            h1 Neque porro quisquam est
+            h1 {{ news.headLine }}
