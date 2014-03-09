@@ -1,7 +1,8 @@
 var express = require('express'),
     logfmt = require('logfmt'),
     http = require('http'),
-    path = require('path');
+    path = require('path'),
+    routes = require('./routes');
 
 var app = express();
 
@@ -21,6 +22,7 @@ app.configure(function () {
   app.use('/img',express.static(path.join(__dirname, 'public/content/img')));
   app.use('/js',express.static(path.join(__dirname, 'public/js')));
 });
+app.get('/partials/:name', routes.partials);
 
 app.get('/', function (req, res) {
   console.log('router');

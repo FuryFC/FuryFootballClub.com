@@ -3,7 +3,7 @@
 module.exports = function(grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
-  
+
   // configurable paths
   var yeomanConfig = {
       app: 'app',
@@ -67,28 +67,28 @@ module.exports = function(grunt) {
     copy: {
       main: {
         files: [
-          //{ 'dist/Procfile': 'Procfile' },
           { 'dist/app/public/js/libs/angular/angular.min.js': 'app/bower_components/angular/angular.min.js' },
-          { 'dist/app/public/js/libs/angular/angular.min.js': 'app/bower_components/angular/angular.min.js' },
+          { 'dist/app/public/js/libs/angular/angular-route.min.js': 'app/bower_components/angular-route/angular-route.js' },
           { 'dist/app/public/js/libs/jquery/jquery.min.js': 'app/bower_components/jquery/jquery.min.js' },
           { 'dist/app/public/js/libs/bootstrap/bootstrap.min.js': 'app/bower_components/bootstrap/dist/js/bootstrap.min.js' },
           { expand: true, cwd: 'app/bower_components/bootstrap/dist/fonts/', src: ['**'], dest: 'dist/app/public/content/font/' },
           { expand: true, cwd: 'app/img', src: ['**'], dest: 'dist/app/public/content/img/' },
           { expand: true, cwd: 'app/fonts', src: ['**'], dest: 'dist/app/public/content/font/' },
+          { expand: true, cwd: 'app/routes', src: ['**'], dest: 'dist/app/routes/' },
           { expand: true, cwd: 'app/views', src: ['**'], dest: 'dist/app/views/' }
         ]
       },
-      dev: {          
-        files: { 
-          'dist/app/server.js': 'app/server.dev.js' 
+      dev: {
+        files: {
+          'dist/app/server.js': 'app/server.dev.js'
         }
       },
-      test: {          
+      test: {
         files: {
           'dist/app/server.js': 'app/server.test.js'
         }
       },
-      prod: {          
+      prod: {
         files: {
           'dist/app/server.js': 'app/server.prod.js'
         }

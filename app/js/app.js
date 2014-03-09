@@ -1,20 +1,15 @@
 (function(angular) {
   'use strict';
 
-
-  // Declare app level module which depends on filters, and services
-  angular.module('furyApp', [
-    //'ngRoute',
-    'furyApp.filters',
-    //'furyApp.services',
-    //'furyApp.directives',
+  var furyApp = angular.module('furyApp', [
+    'ngRoute',
     'furyApp.featured',
     'furyApp.fixtures'
   ]);
 
-  //config(['$routeProvider', function($routeProvider) {
-    //$routeProvider.when('/', {templateUrl: 'views/partials/featured.jade', controller: 'FeaturedController'});
-    //$routeProvider.otherwise({redirectTo: '/view1'});
-  //}]);
+  furyApp.config(['$routeProvider', function($routeProvider) {
+    $routeProvider.when('/home', {templateUrl: 'partials/home.jade'});
+    $routeProvider.otherwise({redirectTo: '/home'});
+  }]);
 
 })(angular);
