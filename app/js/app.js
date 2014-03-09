@@ -9,6 +9,7 @@
 
   furyApp.config(['$routeProvider', function($routeProvider) {
     $routeProvider.when('/home', {templateUrl: 'partials/home.jade'});
+    $routeProvider.when('/schedule', {templateUrl: 'partials/schedule.jade'});
     $routeProvider.otherwise({redirectTo: '/home'});
   }]);
 
