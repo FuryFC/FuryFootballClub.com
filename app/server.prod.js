@@ -23,11 +23,8 @@ app.configure(function () {
   app.use('/js',express.static(path.join(__dirname, 'public/js')));
 });
 
-app.get('*', routes.index);
 app.get('/partials/:name', routes.partials);
-
 app.get('/', function (req, res) {
-  console.log('router');
   res.render('index.jade');
 });
 

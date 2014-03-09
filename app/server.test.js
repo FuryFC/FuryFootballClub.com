@@ -22,10 +22,9 @@ app.configure(function () {
   app.use('/img',express.static(path.join(__dirname, 'public/content/img')));
   app.use('/js',express.static(path.join(__dirname, 'public/js')));
 });
-app.get('/partials/:name', routes.partials);
 
+app.get('/partials/:name', routes.partials);
 app.get('/', function (req, res) {
-  console.log('router');
   res.render('index.jade');
 });
 
