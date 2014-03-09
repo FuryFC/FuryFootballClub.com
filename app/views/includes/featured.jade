@@ -1,0 +1,6 @@
+div.front-section.featured.row
+  article(ng-controller="FeaturedController")
+    div.caption.gutter-sides
+      h1 {{ featuredNews.headLine }}
+      p {{ featuredNews.preview }}
+    img(ng-src="{{ featuredNews.img }}")

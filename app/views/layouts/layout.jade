@@ -8,11 +8,12 @@ html(lang="en", ng-app="furyApp")
     link(href='http://fonts.googleapis.com/css?family=Roboto%20Condensed:400,700' rel='stylesheet' type='text/css')
 
   body
-    include header
+    include ../includes/header
 
-    block content
+    div(ng-view="")
+      block content
 
-    include footer
+    include ../includes/footer
 
 script(src="js/libs/jquery/jquery.min.js")
 script(src="js/libs/bootstrap/bootstrap.min.js")

@@ -1,0 +1,11 @@
+div.front-section.odd.gutter.row.fixtures(ng-controller="FixtureController")
+  div.col-sm-2.fixture(ng-repeat="fixture in fixtures")
+    header
+      time(datetime="2014-03-01") {{ fixture.date }}
+      span Fixture
+    div.team
+      span.name Fury
+      span.score {{ fixture.furyScore }}
+    div.team
+      span.name {{ fixture.opponentInitial }}
+      span.score {{ fixture.opponentScore }}
