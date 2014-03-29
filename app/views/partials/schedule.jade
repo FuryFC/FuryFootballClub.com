@@ -31,7 +31,10 @@ div.container.gutter
               img(src="http://www.arsenal.com/assets/images/crests/arsenal.png?2012-13")
               div Arsenal
     div.col-sm-4
-      aside(data-spy="affix" data-offset-top="60")
+      aside
         div March 2014
         div April 2014
         div May 2014
+
+script
+  $('aside').affix({ offset: { top: 100 } });
