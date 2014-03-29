@@ -1,3 +1,7 @@
+.fixed {
+  postion: fixed;
+}
+
 /* Gutter */
 .gutter {
   padding: 2em;
@@ -6,6 +10,10 @@
 .gutter-sides {
   padding-left: 2em;
   padding-right: 2em;
+}
+
+.gutter-stacked {
+  padding: 1em 2em;
 }
 
 /* Responsive Gutters */
@@ -19,6 +27,10 @@
     padding-left: 1em;
     padding-right: 1em;
   }
+
+  .gutter-stacked {
+    padding: .5em 1em;
+  }
 }
 
 @media (max-width: @screen-xs-max) {
@@ -29,5 +41,9 @@
   .gutter-sides {
     padding-left: .5em;
     padding-right: .5em;
+  }
+
+  .gutter-stacked {
+    padding: .25em .5em;
   }
 }
