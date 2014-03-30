@@ -7,9 +7,9 @@
     margin: 0 auto;
 
     .caption {
-      background-color: #001600;
+      background-color: @brand-primary;
       bottom: 0;
-      color: #ddd;
+      color: @text-color;
       opacity:0.9;
       filter:alpha(opacity=90);
       max-height: 33%;
@@ -41,17 +41,4 @@
       }
     }
   }
-}
-
-@media (max-width: @screen-xs-max) {
-  .featured {
-    article {
-      .caption {
-        h1 {
-          font-size: 24px;
-        }
-      }
-    }
-  }
-
 }
