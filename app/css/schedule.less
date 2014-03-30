@@ -1,40 +1,68 @@
-.schedule {
-  > header {
+.schedule-container {
+  position: relative;
+
+  header {
     h1 {
       background-color: #001600;
-      opacity: 0.9;
-      filter: alpha(opacity=90);
-      padding: .25em;
+      font-size: 2em;
+      margin: 0 -15px 10px;
+      padding: .5em;
       text-align: left;
     }
   }
 
-  article {
-    header {
-      background-color: #333;
+  .schedule {
+    .match {
+      header {
+        background-color: #333;
+        font-size: 1.25em;
+        padding: 1em;
+        text-align: left;
+
+        .league {
+          float: right;
+        }
+      }
+      >.match-details {
+        background-color: #eee;
+        color: #333;
+
+        margin-right: 0px;
+        margin-left: 0px;
+        text-align: center;
+
+        >.versus {
+          top: 4em;
+        }
+      }
+    }
+
+    .match:not(:first-child) {
+      margin-top: 1em;
+    }
+
+    .match:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
+  .schedule-menu {
+    background-color: #333;
+    height: 100%;
+    position: absolute;
+    right: 0;
+
+    .affix {
+      position: fixed;
+      top: 0;
+    }
+
+    .affix-bottom {
+        bottom: 100px;
+    }
+
+    ul {
       font-size: 1.25em;
-      padding: 1em;
-      text-align: left;
-
-      .league {
-        float: right;
-      }
-    }
-    >.match-details {
-      background-color: #eee;
-      color: #333;
-
-      margin-right: 0px;
-      margin-left: 0px;
-      text-align: center;
-
-      >.versus {
-        top: 4em;
-      }
     }
   }
-}
-
-.affix {
-  top: 50px;
 }
