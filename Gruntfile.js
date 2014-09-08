@@ -69,6 +69,7 @@ module.exports = function(grunt) {
         files: [
           { 'dist/app/public/js/libs/angular/angular.min.js': 'app/bower_components/angular/angular.js' },
           { 'dist/app/public/js/libs/angular/angular-route.min.js': 'app/bower_components/angular-route/angular-route.min.js' },
+          { 'dist/app/public/js/libs/angular-ui/angular-ui.min.js': 'app/bower_components/angular-ui/build/angular-ui.min.js'},
           { 'dist/app/public/js/libs/jquery/jquery.min.js': 'app/bower_components/jquery/jquery.min.js' },
           { 'dist/app/public/js/libs/bootstrap/bootstrap.min.js': 'app/bower_components/bootstrap/dist/js/bootstrap.min.js' },
           { expand: true, cwd: 'app/bower_components/bootstrap/dist/fonts/', src: ['**'], dest: 'dist/app/public/content/font/' },

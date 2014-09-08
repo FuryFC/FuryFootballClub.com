@@ -1,8 +1,8 @@
 div.front-section.gutter.row(ng-controller="FeaturedController")
-  div.row
-    div.col-sm-4(ng-repeat="news in recentNews")
+  div.row(ng-repeat="rows in recentNews | partition:3")
+    div.col-sm-4(ng-repeat="article in rows")
       div.thumbnail
         article
-          img(ng-src="{{ news.img }}")
+          img(ng-src="{{ article.img }}")
           div.caption
-            h1 {{ news.headLine }}
+            h1 {{ article.headLine }}

@@ -1,0 +1,11 @@
+div.container.gutter
+  div.row(ng-repeat="rows in items | partition:3")
+    div.col-sm-4(ng-repeat="item in rows")
+      div.thumbnail
+        article
+          img(src="/img/FuryLogo.png")
+          div.caption
+            h1 {{item.description}} ${{item.price}}
+            p Winter session 1 8 games.  Come play with us.
+            p
+              a.btn.btn-primary(href="#" role="button") Add To Cart

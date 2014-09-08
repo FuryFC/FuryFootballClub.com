@@ -1,115 +1,30 @@
 div.container.gutter
   div.row.schedule-container
     div.col-sm-8.schedule
-      header#March2014
-        h1 March 2014
-      article.match
-        header
-          span Tue 11th march 9:00pm | Vadnais Heights
-          span.league MRSL
-        section.row.match-details.gutter
-            div.col-sm-4
-              img(src="http://www.arsenal.com/assets/images/crests/bayernmunich.png?2012-13")
-              div FC Bayern
-            div.col-sm-4.versus
-              | V
-            div.col-sm-4
-              img(src="http://www.arsenal.com/assets/images/crests/arsenal.png?2012-13")
-              div Arsenal
-
-      article.match
-        header
-          span Tue 11th march 9:00pm | Vadnais Heights
-          span.league MRSL
-        section.row.match-details.gutter
-            div.col-sm-4
-              img(src="http://www.arsenal.com/assets/images/crests/bayernmunich.png?2012-13")
-              div FC Bayern
-            div.col-sm-4.versus
-              | V
-            div.col-sm-4
-              img(src="http://www.arsenal.com/assets/images/crests/arsenal.png?2012-13")
-              div Arsenal
-
-      article.match
-        header
-          span Tue 11th march 9:00pm | Vadnais Heights
-          span.league MRSL
-        section.row.match-details.gutter
-            div.col-sm-4
-              img(src="http://www.arsenal.com/assets/images/crests/bayernmunich.png?2012-13")
-              div FC Bayern
-            div.col-sm-4.versus
-              | V
-            div.col-sm-4
-              img(src="http://www.arsenal.com/assets/images/crests/arsenal.png?2012-13")
-              div Arsenal
-      header#April2014
-        h1 April 2014
-      article.match
-        header
-          span Tue 11th march 9:00pm | Vadnais Heights
-          span.league MRSL
-        section.row.match-details.gutter
-            div.col-sm-4
-              img(src="http://www.arsenal.com/assets/images/crests/bayernmunich.png?2012-13")
-              div FC Bayern
-            div.col-sm-4.versus
-              | V
-            div.col-sm-4
-              img(src="http://www.arsenal.com/assets/images/crests/arsenal.png?2012-13")
-              div Arsenal
-      article.match
-        header
-          span Tue 11th march 9:00pm | Vadnais Heights
-          span.league MRSL
-        section.row.match-details.gutter
-            div.col-sm-4
-              img(src="http://www.arsenal.com/assets/images/crests/bayernmunich.png?2012-13")
-              div FC Bayern
-            div.col-sm-4.versus
-              | V
-            div.col-sm-4
-              img(src="http://www.arsenal.com/assets/images/crests/arsenal.png?2012-13")
-              div Arsenal
-      article.match
-        header
-          span Tue 11th march 9:00pm | Vadnais Heights
-          span.league MRSL
-        section.row.match-details.gutter
-            div.col-sm-4
-              img(src="http://www.arsenal.com/assets/images/crests/bayernmunich.png?2012-13")
-              div FC Bayern
-            div.col-sm-4.versus
-              | V
-            div.col-sm-4
-              img(src="http://www.arsenal.com/assets/images/crests/arsenal.png?2012-13")
-              div Arsenal
-      article.match
-        header
-          span Tue 11th march 9:00pm | Vadnais Heights
-          span.league MRSL
-        section.row.match-details.gutter
-            div.col-sm-4
-              img(src="http://www.arsenal.com/assets/images/crests/bayernmunich.png?2012-13")
-              div FC Bayern
-            div.col-sm-4.versus
-              | V
-            div.col-sm-4
-              img(src="http://www.arsenal.com/assets/images/crests/arsenal.png?2012-13")
-              div Arsenal
+      div(ng-repeat="match in schedule")
+        header(id="{{match.id}}")
+          h1 {{ match.text }}
+        article.match(ng-repeat="match in schedule")
+          header
+            span {{ match.date }} | {{ match.location }}
+            span.league MRSL
+          section.row.match-details.gutter
+              div.col-sm-4
+                img(src="http://www.arsenal.com/assets/images/crests/bayernmunich.png?2012-13")
+                div {{ match.home }}
+              div.col-sm-4.versus
+                | V
+              div.col-sm-4
+                img(src="http://www.arsenal.com/assets/images/crests/arsenal.png?2012-13")
+                div {{ match.away }}
 
     div.col-sm-4.schedule-menu.hidden-xs
       aside
         header
           h1 Season
         ul.nav.nav-pills.nav-stacked
-          li.active
-            a(href="#March2014") March 2014
-          li
-            a(href="#April2014") April 2014
-          li
-            a(href="#May2014") May 2014
+          li(ng-repeat="match in matchMonths")
+            a(href="{{ '#' + match.id }}") {{ match.text }}
 
 script
   $('aside').affix({ offset: { top: 130 } });

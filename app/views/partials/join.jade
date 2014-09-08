@@ -1,0 +1,34 @@
+div.container.gutter
+  header
+    h1 Join The Club
+  p
+    | Fury FC plays in various leagues throughout the year.  The club's year
+    | consists of 1 summer season, 1 fall season, and 3 winter sessions.  We
+    | are always looking for good guys to join the club.  If you want to play
+    | with the club register for an account below.
+
+  div.row
+    div.col-xs-12.col-md-8.col-md-offset-2
+      form(name="form")
+        div.form-group
+          h1 Your Info
+          div.row
+            div.col-md-6
+              label(for="password") First Name
+              input.form-control(type="text" placeholder="First Name" ng-model="firstName" required)
+            div.col-md-6
+              label(for="password") Last Name
+              input.form-control(type="text" placeholder="Last Name" ng-model="lastName" required)
+
+        div.form-group
+          h1 Your Account Info
+          label(for="email") Email
+          input.form-control(type="email" placeholder="Email" ng-model="email" required)
+
+          label(for="password") Password
+          input.form-control(name="password" type="password" placeholder="Password" ng-model="password" ng-minlength="6" ng-maxlength="16" required)
+
+          label(for="password") Confirm Password
+          input.form-control(name="confirmPassword" type="password" placeholder="Password" ui-validate="'$value==password'" ui-validate-watch="'password'" ng-model="confirmPassword" required)
+
+      button.btn.btn-primary.btn.btn-primary.col-xs-12.col-md-6.col-md-offset-3(ng-disabled="form.$invalid")  Register
