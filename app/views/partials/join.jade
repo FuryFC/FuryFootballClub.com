@@ -15,20 +15,21 @@ div.container.gutter
           div.row
             div.col-md-6
               label(for="password") First Name
-              input.form-control(type="text" placeholder="First Name" ng-model="firstName" required)
+              input.form-control(type="text" placeholder="First Name" ng-model="account.firstName" required)
             div.col-md-6
               label(for="password") Last Name
-              input.form-control(type="text" placeholder="Last Name" ng-model="lastName" required)
+              input.form-control(type="text" placeholder="Last Name" ng-model="account.lastName" required)
 
         div.form-group
           h1 Your Account Info
           label(for="email") Email
-          input.form-control(type="email" placeholder="Email" ng-model="email" required)
+          input.form-control(type="email" placeholder="Email" ng-model="account.email" required)
 
           label(for="password") Password
-          input.form-control(name="password" type="password" placeholder="Password" ng-model="password" ng-minlength="6" ng-maxlength="16" required)
+          input.form-control(name="password" type="password" placeholder="Password" ng-model="account.password" ng-minlength="6" ng-maxlength="16" required)
 
           label(for="password") Confirm Password
-          input.form-control(name="confirmPassword" type="password" placeholder="Password" ui-validate="'$value==password'" ui-validate-watch="'password'" ng-model="confirmPassword" required)
+          input.form-control(name="confirmPassword" type="password" placeholder="Password" ui-validate="'$value==account.password'" ui-validate-watch="'account.password'" ng-model="confirmPassword" required)
 
-      button.btn.btn-primary.btn.btn-primary.col-xs-12.col-md-6.col-md-offset-3(ng-disabled="form.$invalid")  Register
+        div.row
+          a.btn.btn-primary.btn.btn-primary.col-xs-12.col-md-6.col-md-offset-3(ng-disabled="form.$invalid" ng-click="create()")  Register
